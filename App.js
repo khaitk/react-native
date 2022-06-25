@@ -1,132 +1,170 @@
-import {Button, Image, ScrollView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {useState} from "react";
-
-const logo = {
-    uri   : 'https://reactnative.dev/img/tiny_logo.png',
-    width : 64,
-    height: 64
-};
-
-const image = [
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Lear Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    },
-    {
-        id   : 1,
-        title: 'Learn Android React Native - Khai Dev'
-    }
-]
+import * as React from "react";
+import {
+    Text,
+    View,
+    StyleSheet,
+    TouchableOpacity,
+    Image,
+    TextInput, ScrollView
+} from "react-native";
 
 export default function App() {
-
-    const [name, setName]   = useState('');
-    const [email, setEmail] = useState('');
 
     return (
         <ScrollView>
             <View style={styles.container}>
-                {image.map((img, index) => {
-                    return (
-                        <View key={index}>
-                            <Text>{img.title}</Text>
-                            <Image source={logo} style={styles.text_center}/>
+                <View style={styles.body}>
+                    <View style={styles.segment}>
+                        <Image
+                            style={styles.icon}
+                            source={{
+                                uri: "https://cdn-icons-png.flaticon.com/512/295/295128.png"
+                            }}
+                        />
+                    </View>
+                    <View style={styles.segment}>
+                        <Text style={styles.title}>Đăng nhập</Text>
+                    </View>
+                    <View style={styles.segment}>
+                        <View style={styles.textInputContainer}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Email"
+                            />
                         </View>
-                    )
-                })}
-
-                <View>
-                    <Text>Some more text</Text>
-                    <Image
-                        source={{
-                            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-                        }}
-                        style={{
-                            width : 200,
-                            height: 200
-                        }}
-                    />
+                        <View style={styles.textInputContainer}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Mật khẩu"
+                            />
+                        </View>
+                    </View>
                 </View>
-
-                <TextInput
-                    style={{
-                        width      : 350,
-                        height     : 40,
-                        borderColor: 'gray',
-                        borderWidth: 1,
-                        padding    : 5,
-                        margin     : 5,
-                    }}
-                    value={name}
-                    onChangeText={(textName) => setName(textName)}
-                    placeholder="Input name?"
-                />
-
-                <TextInput
-                    style={{
-                        width      : 350,
-                        height     : 40,
-                        borderColor: 'gray',
-                        borderWidth: 1,
-                        padding    : 5,
-                        margin     : 5
-                    }}
-                    value={email}
-                    onChangeText={(textEmail) => setEmail(textEmail)}
-                    placeholder="Input email?"
-                />
-                <Button
-                    onPress={() => {
-                        alert(name + ' ' + email);
-                    }}
-                    color="#841584"
-                    title="Press Me"
-                />
+                {/* the footer*/}
+                <View style={styles.footer}>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>Đăng nhập</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems   : 'center',
+                    paddingTop   : 15
+                }}>
+                    <View style={{
+                        flex           : 1,
+                        height         : 1,
+                        backgroundColor: 'black'
+                    }}/>
+                    <View>
+                        <Text style={{
+                            width    : 50,
+                            textAlign: 'center'
+                        }}>hoặc</Text>
+                    </View>
+                    <View style={{
+                        flex           : 1,
+                        height         : 1,
+                        backgroundColor: 'black'
+                    }}/>
+                </View>
+                <View style={styles.social}>
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.icon}
+                            source={{
+                                uri: "https://icon-library.com/images/facebook-png-icon/facebook-png-icon-12.jpg"
+                            }}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.icon}
+                            source={{
+                                uri: "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+                            }}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
         </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    container  : {
+    container : {
         flex           : 1,
-        backgroundColor: '#fff',
-        alignItems     : 'center',
-        justifyContent : 'center',
+        flexDirection  : "column",
+        justifyContent : "center",
+        backgroundColor: "white"
     },
-    text_center: {
-        alignItems: 'center',
+    header    : {
+        padding        : 10,
+        backgroundColor: "blue"
+    },
+    headerText: {
+        fontSize: 24,
+        color   : "white",
+    },
+    body      : {
+        flexDirection  : "column",
+        justifyContent : "space-between",
+        alignItems     : "stretch",
+        backgroundColor: "white",
+        paddingTop     : 30,
+        padding        : 20
+    },
+    segment   : {
+        paddingTop    : 20,
+        flexDirection : "column",
+        justifyContent: "space-between",
+        alignItems    : "stretch"
+    },
+    icon      : {
+        height: 60,
+        width : 60
+    },
+
+    title             : {
+        color   : "#3d3d3d",
+        fontSize: 30,
+    },
+    description       : {
+        color   : "#3d3d3d",
+        fontSize: 18,
+    },
+    textInputContainer: {
+        borderWidth : 1,
+        margin      : 10,
+        borderRadius: 10
+    },
+    textInput         : {
+        color   : "#3d3d3d",
+        fontSize: 18,
+        padding : 10,
+    },
+    footer            : {
+        flexDirection : "column",
+        justifyContent: "center",
+        alignItems    : "center"
+    },
+    button            : {
+        width          : 350,
+        padding        : 15,
+        backgroundColor: "blue",
+        flexDirection  : "column",
+        justifyContent : "center",
+        alignItems     : "center",
+        elevation      : 1,
+        borderRadius   : 10
+    },
+    buttonText        : {
+        fontSize: 18,
+        color   : "white",
+    },
+    social          : {
+        flexDirection : "row",
+        justifyContent: "center",
+        alignItems    : "center"
     }
 });
