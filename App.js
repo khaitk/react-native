@@ -1,3 +1,4 @@
+import {useState} from "react";
 import * as React from "react";
 import {
     Text,
@@ -9,6 +10,13 @@ import {
 } from "react-native";
 
 export default function App() {
+
+    const [email, setEmail]       = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+        alert(email + password)
+    }
 
     return (
         <>
@@ -29,19 +37,25 @@ export default function App() {
                                 <TextInput
                                     style={styles.textInput}
                                     placeholder="Email"
+                                    onChangeText={text => setEmail(text)}
                                 />
                             </View>
                             <View style={styles.textInputContainer}>
                                 <TextInput
                                     style={styles.textInput}
+                                    secureTextEntry={true}
                                     placeholder="Mật khẩu"
+                                    onChangeText={text => setPassword(text)}
                                 />
                             </View>
                         </View>
                     </View>
                     {/* the footer*/}
                     <View style={styles.footer}>
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={handleLogin}
+                        >
                             <Text style={styles.buttonText}>Đăng nhập</Text>
                         </TouchableOpacity>
                     </View>
