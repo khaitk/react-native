@@ -5,132 +5,139 @@ import {
     StyleSheet,
     TouchableOpacity,
     Image,
-    TextInput, ScrollView
+    TextInput, ScrollView, ImageBackground
 } from "react-native";
 
 export default function App() {
 
     return (
-        <ScrollView>
+        <>
             <View style={styles.container}>
-                <View style={styles.body}>
-                    <View style={styles.segment}>
-                        <Image
-                            style={styles.icon}
-                            source={{
-                                uri: "https://cdn-icons-png.flaticon.com/512/295/295128.png"
-                            }}
-                        />
-                    </View>
-                    <View style={styles.segment}>
-                        <Text style={styles.title}>Đăng nhập</Text>
-                    </View>
-                    <View style={styles.segment}>
-                        <View style={styles.textInputContainer}>
-                            <TextInput
-                                style={styles.textInput}
-                                placeholder="Email"
-                            />
+                <ImageBackground
+                    style={styles.backgroundImage}
+                    source={{
+                        uri: "https://i.pinimg.com/originals/ec/2a/96/ec2a96261ae363cdf3cd43be8697d146.png"
+                    }}
+                >
+                    <View style={styles.body}>
+
+                        <View style={styles.segment}>
+                            <Text style={styles.title}>Đăng nhập</Text>
                         </View>
-                        <View style={styles.textInputContainer}>
-                            <TextInput
-                                style={styles.textInput}
-                                placeholder="Mật khẩu"
-                            />
+                        <View style={styles.segment}>
+                            <View style={styles.textInputContainer}>
+                                <TextInput
+                                    style={styles.textInput}
+                                    placeholder="Email"
+                                />
+                            </View>
+                            <View style={styles.textInputContainer}>
+                                <TextInput
+                                    style={styles.textInput}
+                                    placeholder="Mật khẩu"
+                                />
+                            </View>
                         </View>
                     </View>
-                </View>
-                {/* the footer*/}
-                <View style={styles.footer}>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>Đăng nhập</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={{
-                    flexDirection: 'row',
-                    alignItems   : 'center',
-                    paddingTop   : 15
-                }}>
-                    <View style={{
-                        flex           : 1,
-                        height         : 1,
-                        backgroundColor: 'black'
-                    }}/>
-                    <View>
-                        <Text style={{
-                            width    : 50,
-                            textAlign: 'center'
-                        }}>hoặc</Text>
+                    {/* the footer*/}
+                    <View style={styles.footer}>
+                        <TouchableOpacity style={styles.button}>
+                            <Text style={styles.buttonText}>Đăng nhập</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={{
-                        flex           : 1,
-                        height         : 1,
-                        backgroundColor: 'black'
-                    }}/>
-                </View>
-                <View style={styles.social}>
-                    <TouchableOpacity>
-                        <Image
-                            style={styles.icon}
-                            source={{
-                                uri: "https://icon-library.com/images/facebook-png-icon/facebook-png-icon-12.jpg"
-                            }}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Image
-                            style={styles.icon}
-                            source={{
-                                uri: "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
-                            }}
-                        />
-                    </TouchableOpacity>
-                </View>
+                        flexDirection: 'row',
+                        alignItems   : 'center',
+                        paddingTop   : 15
+                    }}>
+                        <View style={{
+                            flex           : 1,
+                            height         : 1,
+                            backgroundColor: 'black'
+                        }}/>
+                        <View>
+                            <Text style={{
+                                width    : 50,
+                                textAlign: 'center'
+                            }}>hoặc</Text>
+                        </View>
+                        <View style={{
+                            flex           : 1,
+                            height         : 1,
+                            backgroundColor: 'black'
+                        }}/>
+                    </View>
+                    <View style={styles.social}>
+                        <TouchableOpacity>
+                            <Image
+                                style={styles.icon}
+                                source={{
+                                    uri: "https://icon-library.com/images/facebook-png-icon/facebook-png-icon-12.jpg"
+                                }}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Image
+                                style={styles.icon}
+                                source={{
+                                    uri: "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+                                }}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.footer}>
+                        <TouchableOpacity style={styles.buttonRegister}>
+                            <Text style={styles.buttonText}>Đăng Ký</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ImageBackground>
             </View>
-        </ScrollView>
+        </>
     );
 }
 
 const styles = StyleSheet.create({
-    container : {
-        flex           : 1,
-        flexDirection  : "column",
-        justifyContent : "center",
-        backgroundColor: "white"
+    container      : {
+        flex: 1,
     },
-    header    : {
+    header         : {
         padding        : 10,
         backgroundColor: "blue"
     },
-    headerText: {
+    headerText     : {
         fontSize: 24,
-        color   : "white",
     },
-    body      : {
-        flexDirection  : "column",
-        justifyContent : "space-between",
-        alignItems     : "stretch",
-        backgroundColor: "white",
-        paddingTop     : 30,
-        padding        : 20
+    backgroundImage: {
+        flex      : 1,
+        resizeMode: 'cover',
     },
-    segment   : {
+    body           : {
+        flexDirection : "column",
+        justifyContent: "space-between",
+        alignItems    : "stretch",
+        paddingTop    : 30,
+        padding       : 20,
+    },
+    segment        : {
         paddingTop    : 20,
         flexDirection : "column",
         justifyContent: "space-between",
         alignItems    : "stretch"
     },
-    icon      : {
-        height: 60,
-        width : 60
+    icon           : {
+        height        : 70,
+        width         : 70,
+        flexDirection : "column",
+        justifyContent: "center",
+        alignItems    : "center",
     },
 
     title             : {
-        color   : "#3d3d3d",
+        color   : "#000000",
         fontSize: 30,
     },
     description       : {
-        color   : "#3d3d3d",
+        color   : "#000000",
         fontSize: 18,
     },
     textInputContainer: {
@@ -139,7 +146,7 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     textInput         : {
-        color   : "#3d3d3d",
+        color   : "#000000",
         fontSize: 18,
         padding : 10,
     },
@@ -162,9 +169,20 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color   : "white",
     },
-    social          : {
+    social            : {
         flexDirection : "row",
         justifyContent: "center",
         alignItems    : "center"
+    },
+    buttonRegister    : {
+        flexDirection  : "row",
+        justifyContent : "center",
+        alignItems     : "center",
+        width          : 350,
+        marginTop      : 80,
+        padding        : 15,
+        backgroundColor: "black",
+        elevation      : 1,
+        borderRadius   : 10
     }
 });
